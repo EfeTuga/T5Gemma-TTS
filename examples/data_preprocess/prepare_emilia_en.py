@@ -52,10 +52,6 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from data.tokenizer import AudioTokenizer
-from z_scripts_new.build_neighbors_from_metadata2 import (
-    ensure_neighbor_dir,
-    load_manifest_map,
-)
 
 LOGGER = logging.getLogger("prepare_emilia_en")
 
@@ -136,6 +132,53 @@ DEFAULT_EN_BLOCKLIST = {
 }
 
 _ID_SAFE_RE = re.compile(r"[^A-Za-z0-9_\-./]")
+
+
+@dataclass
+class ManifestEntry:
+    utt_id: str
+    token_len: int
+
+
+def ensure_neighbor_dir(base: Path, folder: str, overwrite: bool) -> Path:
+    neighbor_dir = base / folder
+    if overwrite and neighbor_dir.exists():
+        for file in neighbor_dir.glob("*.txt"):
+            try:
+                file.unlink()
+            except OSError:
+                LOGGER.warning("Failed to remove %s", file, exc_info=True)
+    neighbor_dir.mkdir(parents=True, exist_ok=True)
+    return neighbor_dir
+
+
+def load_manifest_map(manifest_path: Path) -> Dict[str, ManifestEntry]:
+    """Loads manifest into a lookup dictionary."""
+    manifest_map: Dict[str, ManifestEntry] = {}
+    if not manifest_path.exists():
+        LOGGER.warning("Manifest file not found: %s; skipping.", manifest_path)
+        return manifest_map
+    with manifest_path.open("r", encoding="utf-8") as mf:
+        for line in mf:
+            parts = line.strip().split("\t")
+            if len(parts) < 2:
+                continue
+            utt_id = parts[0]
+            try:
+                token_len = int(float(parts[1]))
+            except ValueError:
+                LOGGER.warning(
+                    "Unexpected token length in %s: %s", manifest_path, parts[1]
+                )
+                continue
+            if utt_id in manifest_map:
+                LOGGER.warning(
+                    "Duplicate utt_id '%s' found in manifest %s",
+                    utt_id,
+                    manifest_path,
+                )
+            manifest_map[utt_id] = ManifestEntry(utt_id=utt_id, token_len=token_len)
+    return manifest_map
 
 
 def sanitize_utt_id(raw_id: str) -> str:
