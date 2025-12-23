@@ -22,6 +22,7 @@ https://huggingface.co/NandemoGHS/Anime-XCodec2-44.1kHz-v2/resolve/main/xcodec2-
 ffmpeg-python
 scipy
 soundfile
+numba>=0.60.0
 librosa
 
 # Training / logging
